@@ -26,7 +26,7 @@
                 <div class="col-md-10">
                     <div class="card">
                         <div class="card-body">
-                            <a href="{{ route('produk.user') }}" class="btn btn-primary mb-3">Tambah User</a>
+                            <a href="{{ route('formUser') }}" class="btn btn-primary mb-3">Tambah User</a>
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
