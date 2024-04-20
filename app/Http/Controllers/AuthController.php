@@ -24,15 +24,15 @@ class AuthController extends Controller
             'password' => $request->password,
         ];
 
-        if(auth()->attempt($data)){
+        if(Auth()->attempt($data)){
             $user = Auth::user();
-            if ($user->role === 'admin') {
-                return redirect()->route('dashboard');
-            }elseif ($user->role == 'petugas') {
-                return redirect()->route('dashboard');
+            if($user->role === 'admin') {
+                return redirect()->route('dashboard_admin');
+            }elseif($user->role === 'petugas'){
+                return redirect()->route('dashboard_petugas');
             }
-        }else {
-            return redirect()->route('/')->with('failed', 'gagal login');
+        }else{
+            return redirect()->route('/');
         }
     }
 
