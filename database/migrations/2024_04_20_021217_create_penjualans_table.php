@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('pelanggan_id');
             $table->foreign('pelanggan_id')->references('id')->on('pelanggans');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->decimal('total_harga', 10,2);
+            $table->decimal('pembayaran', 10, 2);
+            $table->decimal('kembalian', 10, 2);
             $table->date('tgl_penjualan');
             $table->timestamps();
         });

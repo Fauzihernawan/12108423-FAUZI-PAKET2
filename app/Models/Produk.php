@@ -13,6 +13,12 @@ class Produk extends Model
     protected $fillable = [
         'nm_produk',
         'harga',
-        'stok'
+        'stok',
+        'gambar'
     ];
+
+    public function detailItem()
+    {
+        return $this->hasMany(DetailPenjualan::class);
+    }
 }

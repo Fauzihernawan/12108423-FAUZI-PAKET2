@@ -45,7 +45,7 @@
                                             <th>{{ $item->email }}</th>
                                             <th>{{ $item->role }}</th>
                                             <th>
-                                                <a href="{{ route('formEdit', $item->id) }}"
+                                                <a href="{{ route('user.edit', $item->id) }}"
                                                     class="btn btn-primary">Edit</a>
                                                 <a href="{{ route('user.hapus', $item->id) }}"
                                                     class="btn btn-primary">hapus</a>

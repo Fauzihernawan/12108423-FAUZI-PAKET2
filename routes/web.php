@@ -24,7 +24,11 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => 'role:admin'], function () {
-    Route::get('/beranda', [AdminController::class, 'index'])->name('dashboard_admin');
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('beranda', 'index')->name('dashboard_admin');
+        Route::get('dataPenjualan', 'dataPembelian')->name('penjualan');
+        Route::get('cetak/{id}', 'cetakPDf')->name('cetakPDF');
+    });
     Route::controller(UserController::class)->prefix('user')->group(function () {
         Route::get('', 'index')->name('user');
         Route::get('tambah', 'tambah')->name('formUser');
@@ -39,10 +43,20 @@ Route::group(['middleware' => 'role:admin'], function () {
         Route::post('simpan', 'simpan')->name('produk.simpan');
         Route::get('edit/{id}', 'edit')->name('produk.edit');
         Route::patch('edit/{id}', 'update')->name('produk.update');
+        Route::get('stok/{id}', 'editStok')->name('produk.stok');
+        Route::patch('stok/{id}', 'updateStok')->name('stok.update');
         Route::get('hapus/{id}', 'hapus')->name('produk.hapus');
     });
 });
 
 Route::group(['middleware' => 'role:petugas'], function () {
-    Route::get('/dashboard', [PetugasController::class, 'index'])->name('dashboard_petugas');
+    Route::controller(PetugasController::class)->group(function () {
+        Route::get('dashboard', 'index')->name('dashboard_petugas');
+        Route::get('dataProduk', 'dataProduk')->name('dataProduk');
+        Route::get('pembelian', 'dataPembelian')->name('pembelian');
+        Route::get('tambah', 'tambahPembelian')->name('formPembelian');
+        Route::post('simpan', 'simpanPembelian')->name('pembelian.simpan');
+        Route::get('exPdf/{id}', 'exportPDf')->name('exportPDF');
+        Route::get('excel', 'cetakEXCEL')->name('exportExcel');
+    });
 });

@@ -30,17 +30,17 @@
                 </li>
                 <li class="nav-item {{ request()->routeIs('produk') || request()->routeIs('formProduk') || request()->routeIs('formEdit') ? 'menu-open active' : '' }}">
                     <a href="{{ route('produk') }}"
-                        class="nav-link {{ request()->routeIs('formProduk') || request()->routeIs('produk') || request()->routeIs('formEdit') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-square"></i>
+                        class="nav-link {{ request()->routeIs('produk') || request()->routeIs('formProduk') || request()->routeIs('formEdit') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-cubes"></i>
                         <p>
                             Produk
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('produk') ? 'menu-open active' : '' }}">
-                    <a href="{{ route('produk') }}"
-                        class="nav-link {{ request()->routeIs('produk') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-square"></i>
+                <li class="nav-item {{ request()->routeIs('penjualan') ? 'menu-open active' : '' }}">
+                    <a href="{{ route('penjualan') }}"
+                        class="nav-link {{ request()->routeIs('penjualan') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-shopping-cart"></i>
                         <p>
                             Pembelian
                         </p>
@@ -55,6 +55,24 @@
                             <i class="nav-icon fas fa-home"></i>
                             <p>
                                 Dashboard
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item {{ request()->routeIs('dataProduk') ? 'menu-open active' : '' }}">
+                        <a href="{{ route('dataProduk') }}"
+                            class="nav-link {{ request()->routeIs('dataProduk') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-cubes"></i>
+                            <p>
+                                Produk
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item {{ request()->routeIs('pembelian') || request()->routeIs('formPembelian') ? 'menu-open active' : '' }}">
+                        <a href="{{ route('pembelian') }}"
+                            class="nav-link {{ request()->routeIs('pembelian') || request()->routeIs('formPembelian') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-shopping-cart"></i>
+                            <p>
+                                Pembelian
                             </p>
                         </a>
                     </li>

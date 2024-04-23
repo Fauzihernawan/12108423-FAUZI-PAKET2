@@ -6,7 +6,7 @@ use App\Models\Produk;
 use Illuminate\Http\Request;
 
 
-class produkController extends Controller
+class ProdukController extends Controller
 {
     public function index()
     {
@@ -42,7 +42,7 @@ class produkController extends Controller
 
     public function edit($id)
     {
-        $produk = Produk::find($id)->first();
+        $produk = Produk::find($id) ;
         return view('admin.produk.form', ['produk' => $produk]);
     }
 
@@ -78,8 +78,8 @@ class produkController extends Controller
 
     public function editStok($id)
     {
-        Produk::find($id)->first();
-        return view('admin.produk.stok');
+        $produk = Produk::find($id);
+        return view('admin.produk.stok', compact('produk'));
     }
 
     public function updateStok(Request $request, $id)

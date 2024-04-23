@@ -40,11 +40,11 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        $user = User::find($id)->first();
+        $user = User::find($id);
         if (!$user) {
             return redirect()->route('user')->with('failed', 'Data tidak ada');
         }
-        return view('admin.user.form');
+        return view('admin.user.form', compact('user'));
     }
 
     public function update(Request $request, $id)
@@ -65,7 +65,7 @@ class UserController extends Controller
         if ($request->has('password')) {
             $data['password'] = bcrypt($validata['password']);
         }
-
+  
         User::find($id)->update($data);
         return redirect()->route('user')->with('success', 'Berhasil Update');
     }

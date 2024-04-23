@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Log in (v2)</title>
+    <title>KasirBro | Log in</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -25,7 +25,7 @@
                 <p class="h1"><b>Kasir</b>Bro</p>
             </div>
             <div class="card-body">
-                <form action="{{ route('login')}}" method="post">
+                <form action="{{ route('login') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" name="email" placeholder="Email">

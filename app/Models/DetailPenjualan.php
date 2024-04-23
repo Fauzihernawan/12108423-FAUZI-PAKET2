@@ -9,12 +9,17 @@ class DetailPenjualan extends Model
 {
     use HasFactory;
 
-    protected $table = 'detail_penjulans';
+    protected $table = 'detail_penjualans';
     protected $guarded = ['id'];
+
+    public function Produk()
+    {
+        return $this->belongsTo(Produk::class);     
+    }
 
     public function Penjualan()
     {
-        return $this->belongsTo(Penjualan::class);     
+        return $this->belongsTo(Penjualan::class);
     }
     
 }

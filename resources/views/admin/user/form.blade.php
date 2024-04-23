@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('dashboard_petugas') }}">Beranda</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard_admin') }}">Beranda</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('user') }}">User</a></li>
                         <li class="breadcrumb-item active">Form User</li>
                     </ol>
@@ -56,11 +56,11 @@
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="Masukkan Password" value="{{ isset($user) ? $user->password : '' }}">
+                                    placeholder="Masukkan Password" value="">
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href="{{ route('user') }}" class="btn btn-danger">Batal</a>
+                            <a href="{{ route('user') }}" class="btn btn-warning">Batal</a>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
